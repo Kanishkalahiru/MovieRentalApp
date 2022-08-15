@@ -4,15 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovieRentalApp.Models;
+using MovieRentalApp.DAL;
 
 namespace MovieRentalApp.Controllers
 {
     public class HomeController : Controller
     {
+        MoviesDAL movieDAL = new MoviesDAL();
+
         public ActionResult Index()
         {
-            var movie = new MovieView() { movieName = "Pablo Escobar" };
-            return View(movie);
+            var movieList = movieDAL.getAllMovies();
+
+            if(movieList.Count == 0)
+            {
+                TempData["Validation"] = "Fuck you";
+            }
+
+            return View(movieList);
         }
 
         public ActionResult About()
