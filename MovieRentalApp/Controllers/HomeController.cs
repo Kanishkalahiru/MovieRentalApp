@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieRentalApp.Models;
 
 namespace MovieRentalApp.Controllers
 {
@@ -10,7 +11,8 @@ namespace MovieRentalApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var movie = new MovieView() { movieName = "Pablo Escobar" };
+            return View(movie);
         }
 
         public ActionResult About()
