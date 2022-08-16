@@ -13,6 +13,8 @@
             </div>
         }*@
 
+        @Html.ActionLink("Add a movie", "/insertmovie", null, new {@class="btn btn-primary"})
+
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -27,6 +29,8 @@
                     <tr>
                         <td scope="row">@index</td>
                         <td>@Html.DisplayFor(modelItem => item.movieName)</td>
+                        <td>@Html.ActionLink("Edit", "/editmovieview", new { id = item.movieId }, new { @class = "btn btn-success" })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.movieId }, new { @class = "btn btn-danger" })</td>
                     </tr>
                     index++;
                 }

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "EditMovieView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<form action="editMovieDetails" method="post">
+    <div class="form-group">
+        <label for="inputMovie">Movie Name</label>
+        <input type="hidden" class="form-control" name="inputMovieId" id="inputMovieId" value="@ViewBag.movieId">
+        <input type="text" class="form-control" name="inputMovieName" id="inputMovieName" placeholder="Enter movie name" value="@ViewBag.movieName">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
